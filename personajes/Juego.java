@@ -17,6 +17,7 @@ public class Juego
     public static final int DANO_MIN_ASALTANTE= 5;
     public static final int DANO_MAX_ASALTANTE= 15;
     public static final String [] NIVELES_ENEMIGOS= { "Novato", "Profesional", "Experto" };
+    public static final int [] DANO_ENEMIGO={5, 10,15};
 
         //Defensa
 

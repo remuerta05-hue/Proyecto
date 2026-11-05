@@ -2,6 +2,8 @@ package personajes;
 
 import java.util.Random;
 
+import personajes.NivelesEnemigo.Experto;
+
 public class Asaltante extends Personaje
 {
     private final int nivel;
@@ -12,6 +14,8 @@ public class Asaltante extends Personaje
         this.nivel= nivel;
         this.objeto= Juego.OBJETOS_ASALTANTE[nivel];
     }
+
+    
 
     public int getNivel() {
         return nivel;
