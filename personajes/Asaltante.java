@@ -2,8 +2,6 @@ package personajes;
 
 import java.util.Random;
 
-import personajes.NivelesEnemigo.Experto;
-
 public class Asaltante extends Personaje
 {
     private final int nivel;
@@ -17,7 +15,7 @@ public class Asaltante extends Personaje
 
     
 
-    public int getNivel() {
+    public int getNivel () {
         return nivel;
     }
 
@@ -31,4 +29,20 @@ public class Asaltante extends Personaje
     int ataque = random.nextInt(6) +15; 
     return ataque;
     }
+
+    public boolean esquivar() {
+        Random random = new Random();
+        int probabilidad = random.nextInt(100); 
+        if (probabilidad < 30) {
+            System.out.println("El Asaltante ha esquivado el ataque.");
+        } else {
+            System.out.println("El Asaltante no ha esquivado el ataque.");
+            System.out.println("El Asaltante ha recibido daño : " + getDano() + " puntos de daño.");
+        }
+        if (getVida() <= 0) {
+            System.out.println(" El Asaltante ha sido derrotado.!Gano la partida.! ");
+        }
+        return probabilidad < 30;
+        
+    } 
 }
