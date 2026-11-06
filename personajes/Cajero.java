@@ -2,6 +2,7 @@ package personajes;
 
 import java.util.Random;
 
+
 public class Cajero extends Personaje 
 {
     private int vida= Juego.VIDA_MAX;
@@ -40,8 +41,18 @@ public class Cajero extends Personaje
         return vida;
     }
 
-
-
-
-
+    public boolean esquivar() {
+        Random random = new Random();
+        int probabilidad = random.nextInt(100); 
+        if (probabilidad < 30) {
+            System.out.println("El Cajero ha esquivado el ataque.");
+        } else {
+            System.out.println("El Cajero no ha esquivado el ataque.");
+            System.out.println("El Cajero ha recibido daño : " + getDano() + " puntos de daño.");
+        }
+        if (getVida() <= 0) {
+            System.out.println(" Ya no le queda vida ");
+        }
+        return probabilidad < 30;
+    }
 }
