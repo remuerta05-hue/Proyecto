@@ -5,31 +5,20 @@ import personajes.Juego;
 
 public class Profesional extends Asaltante implements IVida, IAtaque, IObjeto
 {
-    private final int danoMax;
-    private final int danoMin;
-    private final String objeto;
+    
 
     public Profesional (String nombre, int vidaMax,int vidaMin,int vida, int danoMax, int danoMin, int dano,int nivel, String objeto) {
         super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano,nivel,objeto);
         
-        this.danoMax= Juego.DANO_ENEMIGO[2];
-        this.danoMin= Juego.DANO_ENEMIGO[2];
-        this.objeto= Juego.OBJETOS_ASALTANTE[2];
-    }
-
-    @Override
-    public int getDanoMax() {
-        return danoMax;
-    }
-
-    @Override
-    public int getDanoMin() {
-        return danoMin;
-    }
-
-    @Override
-    public String getObjeto() {
-        return objeto;
-    }
     
+     }
+    public void vida() {
+        System.out.println("Vida del Profesional: " + Juego.VIDA_ENEMIGO [1]);
+    }
+    public void ataque() {
+        System.out.println("Daño del Profesional: " + Juego.DANO_ENEMIGO[1]);
+    }
+    public void objeto() {
+        System.out.println("Objeto del Profesional: " + Juego.OBJETOS_ASALTANTE[0]+ Juego.OBJETOS_ASALTANTE[1]);
+    }
 }
