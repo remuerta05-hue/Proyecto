@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-import personajes.Personaje.Juego;
+
 
 public class Main
 {

@@ -37,10 +37,6 @@ public class Cajero extends Personaje
     return ataque;
     }
 
-    public int vida() {
-        return vida;
-    }
-
     public boolean esquivar() {
         Random random = new Random();
         int probabilidad = random.nextInt(100); 
@@ -54,5 +50,9 @@ public class Cajero extends Personaje
             System.out.println(" Ya no le queda vida ");
         }
         return probabilidad < 30;
-    }
+
+        }
+    public int vida() {
+        return vida;
+        }
 }
