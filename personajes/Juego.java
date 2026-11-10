@@ -9,7 +9,7 @@ public class Juego
     public static final int NUM_BEBIDAS= 3;
     public static final int CURACION_BEBIDA= 25;
     public static final int DANO_MIN_CAJERO= 10;
-    public static final int DANO_MÁX_CAJERO = 20;
+    public static final int DANO_MAX_CAJERO = 20;
 
         //Asaltante 
         

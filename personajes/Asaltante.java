@@ -9,11 +9,22 @@ public class Asaltante extends Personaje
 
     public Asaltante (String nombre, int vidaMax,int vidaMin,int vida, int danoMax, int danoMin, int dano,int nivel, String objeto) {
         super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano);
-        this.nivel= nivel;
-        this.objeto= Juego.OBJETOS_ASALTANTE[nivel];
+        this.nivel = nivel;
+        this.objeto = Juego.OBJETOS_ASALTANTE[nivel - 1];
     }
 
-    
+    public Asaltante(int nivel)
+    {
+        super("Asaltante " + Juego.NIVELES_ENEMIGOS[nivel - 1],
+                Juego.VIDA_ENEMIGO[nivel - 1],
+                0,
+                Juego.VIDA_ENEMIGO[nivel - 1],
+                Juego.DANO_MAX_ASALTANTE,
+                Juego.DANO_MIN_ASALTANTE,
+                Juego.DANO_MIN_ASALTANTE);
+        this.nivel = nivel;
+        this.objeto = Juego.OBJETOS_ASALTANTE[nivel - 1];
+    }
 
     public int getNivel () {
         return nivel;
