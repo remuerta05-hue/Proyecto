@@ -50,7 +50,7 @@ public class Metodos {
                 System.out.println("Opción fuera de rango (" + min + "-" + max + ").");
             } else {
                 sc.nextLine();       
-                System.out.println("Debes introducir un número.");
+                System.out.println("Debes introducir un número válido.");
             }
         }
     }
@@ -81,6 +81,18 @@ public class Metodos {
          
          
 
+        public static int simularPelea(Scanner sc, Cajero cajero, Asaltante asaltante) {
+            return Juego.VICTORIA;
+        }
+
+        public static int calcularPuntacion(int derrotados, int vida) {
+            int puntos = derrotados * Juego.PUNTOS_POR_ENEMIGO;
+            if (derrotados == Juego.VIDA_ENEMIGO.length) {
+                puntos += vida;
+            }
+            return puntos;
+        }
+
         public static int  jugarPartida (Scanner sc, String nombre) {
             
             Cajero cajero = new Cajero(nombre, 0, 0, 0, 0, 0);
@@ -90,15 +102,108 @@ public class Metodos {
             System.out.println (  "\n Tu turno nocturno empezo y estas en caja");
 
             for (int nivel= 1 ;  nivel <= Juego.VIDA_ENEMIGO.length; nivel ++ ){
+            Asaltante asaltante = new Asaltante(nivel);
+            System.out.println (" \n Entra a la tienda: " + asaltante.getNombre());
+
+            int resultado = simularCombate(sc, cajero, asaltante);
+            if (resultado != Juego.VICTORIA){
+                break;
+            } 
+
+            derrotados++;
+        }
+
+            int puntos = calcularPuntacion(derrotados, cajero.getVida());
+            System.out.println("\n" + nombre + ", has obtenido " + puntos + " puntos.");
+            return puntos;
+        
+    }
+
+    
+        public static int simularCombate(Scanner sc, Cajero cajero, Asaltante asaltante)
+    {
+            int resultado = Juego.EN_CURSO;
+ 
+            while (resultado == Juego.EN_CURSO) {
+            int opcion = leerOpcion(sc, 1, 4);
+            boolean turnoConsumido = false;     
+ 
+            switch (opcion) {
+                case 1:                    
+                    int dano = cajero.atacar();
+                    asaltante.recibirDano(dano);
+                        cajero.describirAtaqueCajero();
+                        System.out.println(" (" + dano + " de daño).");
+                    turnoConsumido = true;
+                    break;
+                case 2:                        
+                    if (cajero.bebidas() == 0) {
+                        System.out.println("No te quedan bebidas energéticas.");
+                    } else if (cajero.getVidaMax () == 100){
+                    System.out.println
+                    ("Ya tienes la vida completa.");
+                    } else {
+                        cajero.usarBebida();
+                        System.out.println("Bebes una energética. Vida: " + cajero.getVida());
+                        turnoConsumido = true;
+                    }
+                    break;
+                case 3:                                             
+                    System.out.println("Sales corriendo de la tienda...");
+                    resultado = Juego.ABANDONO;
+                    break;
+            }
+                if (asaltante.getVida() < 40 && asaltante.getVida() < 60 && asaltante.getVida() < 80 ) {
+
+                    System.out.println(asaltante.getNombre() + " huye de la tienda.");
+                        resultado = Juego.VICTORIA;
+
+                        } else if (turnoConsumido) {
+
+                        int danoAsaltante = asaltante.atacar();
+                        cajero.recibirDano(danoAsaltante);
+
+                    System.out.println(asaltante.getNombre() + " te ataca con un objeto.");
+                    System.out.println(" (" + danoAsaltante + " de daño)");
+
+                        if (cajero.getVida() != Juego.VIDA_MAX) 
+                    {
+                    System.out.println("Caes al suelo entre los productos...");
+                        
+                        resultado = Juego.DERROTA;
+                    }
+                    return Juego.EN_CURSO;
+                }
+            }
+        }
+       
+    }
+
+        public static void mostrarEstado(Cajero cajero, Asaltante asaltante) {
+            System.out.println("\n--- Combate " + asaltante.getNivel() + " de " + Juego.VIDA_ENEMIGO.length + " ---");
+            asaltante.mostrarDatos();
+            cajero.mostrarDatos();
+            System.out.println("Bebidas energéticas: " + cajero.bebidas());
+            System.out.println("1. Atacar  2. Beber energética  3. Ver inventario  4. Abandonar");
+        }
+
+        public static int calcularPuntuacion(int derrotados, int vidaFinal) {
+            int puntos = derrotados * Juego.PUNTOS_POR_ENEMIGO;
+            if (derrotados == Juego.VIDA_ENEMIGO.length) {
+                puntos = puntos + vidaFinal;            
+            }
+        return puntos;
+        
+    }
+      
+
+
+            
 
 
           
-        }
+    
 
-        
-
-    }
-}
 
 
 
