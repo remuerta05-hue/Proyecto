@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ranking nombre="Top jugadores" >
-    <numero posicion="1" >
-        <nombre>"Ana"</nombre>
-        <puntuacion> "387" </puntuacion>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<ranking nombre="Top jugadores">
+    <numero posicion="1">
+        <nombre>Lucía</nombre>
+        <puntuacion>387</puntuacion>
     </numero>
     <numero posicion="2">
-        <nombre>"Luis"</nombre>
-        <puntuacion> "352" </puntuacion>
+        <nombre>Marcos</nombre>
+        <puntuacion>352</puntuacion>
     </numero>
     <numero posicion="3">
-        <nombre>"Marta"</nombre>
-        <puntuacion>"331"</puntuacion>
+        <nombre>Carla</nombre>
+        <puntuacion>331</puntuacion>
     </numero>
     <numero posicion="4">
-        <nombre> "Tony" </nombre>
-        <puntuacion> "310" </puntuacion>
+        <nombre>Diego</nombre>
+        <puntuacion>318</puntuacion>
     </numero>
     <numero posicion="5">
-        <nombre> "Gisela" </nombre>
-        <puntuacion> "300" </puntuacion>
+        <nombre>Sofía</nombre>
+        <puntuacion>305</puntuacion>
     </numero>
     <numero posicion="6">
         <nombre>Pablo</nombre>

@@ -1,4 +1,4 @@
-package Extras;
+
 
 import java.io.File;
 
@@ -17,6 +17,8 @@ import org.w3c.dom.NodeList;
 public class Modificar {
     public static void main(String[] args) 
     {
+        String nombreBuscado = "Javier";
+        String nuevaPuntuacion = "200";
         try {
             File archivo = new File("ranking.xml");
             DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
@@ -43,21 +45,22 @@ public class Modificar {
 
             }
             TransformerFactory transformerFabrica = TransformerFactory.newInstance();
-        Transformer transformer = transformerFabrica.newTransformer();
+            Transformer transformer = transformerFabrica.newTransformer();
 
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
 
-        DOMSource origen = new DOMSource(documento);
-        StreamResult destino = new StreamResult(new File("ranking.xml"));
-        transformer.transform(origen, destino);
-        
-        System.out.println ("Fichero XML modificado correctamente");
+            DOMSource origen = new DOMSource(documento);
+            StreamResult destino = new StreamResult(new File("ranking.xml"));
+            transformer.transform(origen, destino);
+            
+            System.out.println ("Fichero XML modificado correctamente");
 
             
         } 
-        catch (Exception e) 
+                catch (Exception e) 
         {
             System.out.println("Error al modificar el XML: " + e.getMessage());
     }
+}
 }

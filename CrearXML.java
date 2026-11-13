@@ -1,4 +1,4 @@
-package Extras;
+
 import java.io.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -15,6 +15,9 @@ public class CrearXML {
     
     public static void main (String[] args)
     {
+       String [] nombres = {"Lucía", "Marcos", "Carla", "Diego", "Sofía", "Pablo", "Elena", "Javier"};
+        int[] puntos = {387, 352, 331, 318, 305, 200, 200, 100};
+ 
         try 
         {
         DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();

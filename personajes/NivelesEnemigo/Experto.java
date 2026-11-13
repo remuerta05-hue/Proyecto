@@ -9,7 +9,7 @@ public class Experto extends Asaltante implements IVida, IAtaque, IObjeto {
 
 
     public Experto (String nombre, int vidaMax,int vidaMin,int vida, int danoMax, int danoMin, int dano,int nivel, String objeto) {
-        super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano,nivel,objeto);
+        super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano, nivel);
 
     }
     public void vida() {

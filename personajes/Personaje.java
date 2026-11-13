@@ -9,28 +9,25 @@ public class Personaje
     private  int vida;
     private final int danoMax;
     private final int danoMin;
-    private int dano;
+    private final int dano; 
+    
     
 
-    public Personaje(String nombre, int vidaMax,int vidaMin,int vida, int danoMax, int danoMin, int dano)
+    public Personaje(String nombre, int vidaMax, int vidaMin, int vida, int danoMax, int danoMin, int dano)
 
     {
         this.nombre = nombre;
-        this.vidaMax = 0;
+        this.vidaMax = vidaMax;
         this.vidaMin = 0;
-        this.vida = 0;
-        this.danoMax = 0;
-        this.danoMin = 0;
-        this.dano = 0;
+        this.vida = vidaMax;
+        this.danoMax = danoMax;
+        this.danoMin = danoMin;
+        this.dano = dano;
+        
     }
 
     //---------- get set----------------
   
-
-    public int tieneVidaCompleta() {
-        return vidaMax;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -41,10 +38,6 @@ public class Personaje
 
     public int getVidaMax() {
         return vidaMax;
-    }
-
-    public int getVidaMin() {
-        return vidaMin;
     }
 
     public int getVida() {
@@ -62,14 +55,7 @@ public class Personaje
     public int getDanoMin() {
         return danoMin;
     }
-
-    public int getDano() {
-        return dano;
-    }
-
-    public void setDano(int dano) {
-        this.dano = dano;
-    }
+    
 
     //--------------metodos----------------
 
@@ -78,6 +64,8 @@ public class Personaje
         System.out.println("Vida: " + this.vida);
         System.out.println("Daño: " + dano);
     }
+    
+
     public void recibirDano(int dano) {
         vida = Math.max(0, vidaMax - dano);
     }

@@ -4,6 +4,7 @@ import personajes.Asaltante;
 import personajes.Cajero;
 import personajes.Juego;
 
+
 public class Metodos {
     
         public static void mostrarMenu()
@@ -37,23 +38,23 @@ public class Metodos {
                 + " por enemigo derrotado, más tu vida restante si ganas los tres combates.");
             }
 
-        public static int leerOpcion(Scanner sc, int min, int max){
-    
-        while (true) {
+        public static int leerOpcion(Scanner sc, int min, int max) {
+        int opcion = min - 1;                       
+        while (opcion < min || opcion > max) {
             System.out.print("> ");
             if (sc.hasNextInt()) {
-                int opcion = sc.nextInt();
-                sc.nextLine();
-                 if (opcion >= min && opcion <= max) {
-                    return opcion;
+                opcion = sc.nextInt();
+                if (opcion < min || opcion > max) {
+                    System.out.println("Opción fuera de rango (" + min + "-" + max + ").");
                 }
-                System.out.println("Opción fuera de rango (" + min + "-" + max + ").");
             } else {
-                sc.nextLine();       
-                System.out.println("Debes introducir un número válido.");
+                System.out.println("Debes escribir un número.");
             }
+            sc.nextLine();                          
         }
-    }
+        return opcion;
+        }
+        
  
         public static String leerNombre(Scanner sc) {
 
@@ -120,6 +121,7 @@ public class Metodos {
         
     }
 
+
     
         public static int simularCombate(Scanner sc, Cajero cajero, Asaltante asaltante)
     {
@@ -177,6 +179,8 @@ public class Metodos {
                 }
             }
         }
+
+       
        
     }
 

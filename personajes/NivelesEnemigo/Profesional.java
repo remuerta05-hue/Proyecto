@@ -7,11 +7,13 @@ public class Profesional extends Asaltante implements IVida, IAtaque, IObjeto
 {
     
 
-    public Profesional (String nombre, int vidaMax,int vidaMin,int vida, int danoMax, int danoMin, int dano,int nivel, String objeto) {
-        super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano,nivel,objeto);
+    public Profesional (String nombre, int vidaMax, int vidaMin, int vida, int danoMax, int danoMin, int dano, int nivel, String objeto)
         
-    
-     }
+     
+    {
+        super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano, nivel);
+        
+    }
     public void vida() {
         System.out.println("Vida del Profesional: " + Juego.VIDA_ENEMIGO [1]);
     }
