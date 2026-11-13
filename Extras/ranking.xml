@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ranking nombre="Top jugadores" >
+    <numero posicion="1" >
+        <nombre>"Ana"</nombre>
+        <puntuacion> "387" </puntuacion>
+    </numero>
+    <numero posicion="2">
+        <nombre>"Luis"</nombre>
+        <puntuacion> "1000" </puntuacion>
+    </numero>
+    <numero posicion="3">
+        <nombre>"Marta"</nombre>
+        <puntuacion>"800"</puntuacion>
+    </numero>
+</ranking>
