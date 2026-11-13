@@ -6,10 +6,30 @@
     </numero>
     <numero posicion="2">
         <nombre>"Luis"</nombre>
-        <puntuacion> "1000" </puntuacion>
+        <puntuacion> "352" </puntuacion>
     </numero>
     <numero posicion="3">
         <nombre>"Marta"</nombre>
-        <puntuacion>"800"</puntuacion>
+        <puntuacion>"331"</puntuacion>
+    </numero>
+    <numero posicion="4">
+        <nombre> "Tony" </nombre>
+        <puntuacion> "310" </puntuacion>
+    </numero>
+    <numero posicion="5">
+        <nombre> "Gisela" </nombre>
+        <puntuacion> "300" </puntuacion>
+    </numero>
+    <numero posicion="6">
+        <nombre>Pablo</nombre>
+        <puntuacion>200</puntuacion>
+    </numero>
+    <numero posicion="7">
+        <nombre>Elena</nombre>
+        <puntuacion>200</puntuacion>
+    </numero>
+    <numero posicion="8">
+        <nombre>Javier</nombre>
+        <puntuacion>100</puntuacion>
     </numero>
 </ranking>
