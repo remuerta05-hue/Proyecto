@@ -1,47 +1,62 @@
 package personajes;
 
-import java.util.Random;
-
-public class Cajero extends Personaje 
+/**
+ * El jugador: un cajero con un inventario de bebidas energéticas.
+ * El inventario es un array de tamaño fijo y un contador de bebidas disponibles.
+ */
+public class Cajero extends Personaje
 {
-    private int vida= Juego.VIDA_MAX;
-    private final int[] bebidas = new int[Juego.NUM_BEBIDAS];
-    private int num_bebidas;
+    private final String[] inventario = new String[Juego.NUM_BEBIDAS];
+    private int numBebidas;
 
-    public Cajero (String nombre, int vidaMax, int vidaMin, int danoMax, int danoMin, int bebidas) {
-        super(nombre, vidaMax, vidaMin, 0, danoMax, danoMin, 0);}
-
-    public String getNombre() {
-        return super.getNombre();
+    public Cajero(String nombre, int vidaMax, int vidaMin, int danoMax, int danoMin, int bebidas) {
+        super(nombre, vidaMax, vidaMin, vidaMax, danoMax, danoMin, danoMax);
+        numBebidas = 0;
+        while (numBebidas < bebidas && numBebidas < inventario.length) {
+            inventario[numBebidas] = Juego.NOMBRE_BEBIDA;
+            numBebidas++;
+        }
     }
 
+    /** 
+     * @return */
+      
     public int bebidas() {
-        System.out.println("Tienes " + num_bebidas + " bebidas energéticas");
-        return num_bebidas;
+        return numBebidas;
+    }
+
+     
+    public void mostrarInventario() {
+        System.out.println("--- Inventario ---");
+        if (numBebidas == 0) {
+            System.out.println("El inventario está vacío.");
+        }
+        for (int i = 0; i < numBebidas; i++) {
+            System.out.println((i + 1) + ". " + inventario[i]);
+        }
     }
 
     public void usarBebida() {
-        if (num_bebidas > 0) {
-            vida += 25;
-            num_bebidas--;
-            System.out.println("Has bebido una bebida energética y has recuperado 25 puntos de vida");
-        } else {
-            System.out.println("No te quedan bebidas energéticas");
+        if (numBebidas > 0) {
+            numBebidas--;
+            inventario[numBebidas] = null;    
+            recuperarVida(Juego.CURACION_BEBIDA);
         }
-    }   
-    
-     public int  atacar () {
-    Random random = new Random();
-    int ataque = random.nextInt(6) +20; 
-    return ataque;
     }
 
-    public int vida() {
-        return vida;
+    public String describirAtaque(String[] objetosCajero) {
+        int posicion = (int) (Math.random() * objetosCajero.length);
+        return "El cajero ataca con " + objetosCajero[posicion];
     }
 
-
-
-
-
+    public boolean tieneVidaCompleta() {
+        return getVida() == getVidaMax();
+    }
 }
+
+    
+
+
+
+
+

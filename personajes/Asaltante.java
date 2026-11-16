@@ -1,27 +1,20 @@
 package personajes;
 
-import java.util.Random;
 
-import personajes.NivelesEnemigo.Experto;
+
 
 public class Asaltante extends Personaje
 {
     private final int nivel;
     private final String objeto;
-
-    public Asaltante(String nombre, int vidaMax, int vidaMin, int vida, int danoMax, int danoMin, int dano, int nivel)
+       public Asaltante(String nombre, int vidaMax, int vidaMin, int vida, int danoMax, int danoMin, int dano, int nivel)
     {
         super(nombre, vidaMax, vidaMin, vida, danoMax, danoMin, dano);
         this.nivel = nivel;
-        this.objeto = Juego.OBJETOS_ASALTANTE[nivel];
+        this.objeto = Juego.OBJETOS_ASALTANTE[nivel - 1];
     }
 
     
-
-  
-    
-
-
     public int getNivel() {
         return nivel;
     }
@@ -31,9 +24,22 @@ public class Asaltante extends Personaje
     }
 
     
-     public int  atacar () {
-    Random random = new Random();
-    int ataque = random.nextInt(6) +15; 
-    return ataque;
-    }
+   
+    public String describirAtaque(String[] objetosAsaltante) {
+
+    int posicion = (int) (Math.random() * objetosAsaltante.length);
+
+    return "El asaltante te ataca con " + objetosAsaltante[posicion];
+}
+
+
+    
+
+
+
+
+
+
+
+     
 }

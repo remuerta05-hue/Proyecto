@@ -1,5 +1,5 @@
 package personajes;
-import java.util.Random;
+
 
 public class Personaje
 {
@@ -18,7 +18,7 @@ public class Personaje
     {
         this.nombre = nombre;
         this.vidaMax = vidaMax;
-        this.vidaMin = 0;
+        this.vidaMin = vidaMin;
         this.vida = vidaMax;
         this.danoMax = danoMax;
         this.danoMin = danoMin;
@@ -67,39 +67,17 @@ public class Personaje
     
 
     public void recibirDano(int dano) {
-        vida = Math.max(0, vidaMax - dano);
+        vida = Math.max(0, vida - dano);
     }
 
     public void recuperarVida (int cantidad) {
         vida = Math.min(vidaMax, vida + cantidad);
     }
-
-    public int  atacar () {
-    Random random = new Random();
-    int ataque = random.nextInt(6) +15; 
-    return ataque;
+    public boolean estaVivo() {
+    return vida > 0;
     }
 
-    Juego juego= new Juego();
-    public void curar (){
-        setVida(getVida() + Juego.CURACION_BEBIDA);
-    } //mirar si es correcto
-    
-
-    public void describirAtaqueCajero(){
-         //getNombre() + " ataca con " + Juego.OBJETOS_CAJERO[(int) (Math.random() * Juego.OBJETOS_CAJERO.length)];
+    public int atacar() {
+       return (int) (Math.random() * (danoMax - danoMin + 1)) + danoMin;
     }
-    
-    public String describirAtaqueAsaltante(){
-        return getNombre() + " ataca con " + Juego.OBJETOS_ASALTANTE[(int) (Math.random() * Juego.OBJETOS_ASALTANTE.length)];
-    }
-
-   
-
-    
-
-    
-
-    
-    
 }
