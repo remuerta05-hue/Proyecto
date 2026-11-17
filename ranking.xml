@@ -13,31 +13,31 @@
         <puntuacion>331</puntuacion>
     </numero>
     <numero posicion="4">
+        <nombre>Dante</nombre>
+        <puntuacion>321</puntuacion>
+    </numero>
+    <numero posicion="5">
         <nombre>Diego</nombre>
         <puntuacion>318</puntuacion>
     </numero>
-    <numero posicion="5">
-        <nombre>Hani</nombre>
+    <numero posicion="6">
+        <nombre>Sarah</nombre>
         <puntuacion>313</puntuacion>
     </numero>
-    <numero posicion="6">
+    <numero posicion="7">
         <nombre>Sofía</nombre>
         <puntuacion>305</puntuacion>
     </numero>
-    <numero posicion="7">
-        <nombre>Hani</nombre>
+    <numero posicion="8">
+        <nombre>Javier</nombre>
         <puntuacion>305</puntuacion>
     </numero>
-    <numero posicion="8">
+    <numero posicion="9">
         <nombre>Pablo</nombre>
         <puntuacion>200</puntuacion>
     </numero>
-    <numero posicion="9">
+    <numero posicion="10">
         <nombre>Elena</nombre>
         <puntuacion>200</puntuacion>
-    </numero>
-    <numero posicion="10">
-        <nombre>Javier</nombre>
-        <puntuacion>100</puntuacion>
     </numero>
 </ranking>
