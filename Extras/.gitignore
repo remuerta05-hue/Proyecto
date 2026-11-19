@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# ===== Tabla de puntuacion =====
+# HTML generado por la transformacion XSLT (se vuelve a crear con Saxon)
+ranking.html
+
+# Configuracion del editor (Visual Studio Code)
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

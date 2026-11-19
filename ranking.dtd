@@ -1,0 +1,10 @@
+<!ELEMENT ranking (numero+)>
+<!ELEMENT numero (nombre, puntuacion)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT puntuacion (#PCDATA)>
+
+<!ATTLIST ranking
+  nombre CDATA #REQUIRED>
+
+<!ATTLIST numero
+  posicion CDATA #REQUIRED>             

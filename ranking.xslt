@@ -2,11 +2,11 @@
     <xsl:template match="/">
         <html>
             <head>
-                <link rel="stylesheet" href="estilos.css"/>
+                <link rel="stylesheet" href="ranking.css"/>
             </head>
             <body>
                 <h1> Tabla de puntuacion </h1>
-                <table border="2">
+                <table>
                     <tr>
                         <th> Nombre </th>
                         <th> puntuacion</th>
@@ -16,7 +16,7 @@
                             <td>
                                 <xsl:value-of select="nombre"/>
                             </td>
-                            <td>
+                            <td class="puntuacion">
                                 <xsl:value-of select="puntuacion"/>
                             </td>
                         </tr>
