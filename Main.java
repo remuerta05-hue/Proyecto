@@ -37,6 +37,7 @@ public class Main {
         System.out.println("=================================================");
 
         do {
+            Metodos.mostrarPortada();
 
             System.out.println("\n-------------------------------------------------");
             Metodos.mostrarMenu();

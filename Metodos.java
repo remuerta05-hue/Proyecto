@@ -22,6 +22,23 @@ import personajes.NivelesEnemigo.Profesional;
 
 public class Metodos {
 
+    public static void mostrarPortada() {
+        System.out.println("   ______________________________________________");
+        System.out.println("  |  __________________________________________  |");
+        System.out.println("  | |                                          | |");
+        System.out.println("  | |       SUPERMERCADO  \"EL BUEN PRECIO\"     | |");
+        System.out.println("  | |            ABIERTO 24 HORAS              | |");
+        System.out.println("  | |__________________________________________| |");
+        System.out.println("  |                                              |");
+        System.out.println("  |   [ CAJA ]     ___      ___      ___         |");
+        System.out.println("  |    |    |     |   |    |   |    |   |        |");
+        System.out.println("  |____|____|_____|___|____|___|____|___|________|");
+        System.out.println();
+        System.out.println("        EL DESPERTAR DEL HEROE: TURNO DE NOCHE");
+        System.out.println();
+    }
+
+
     public static void mostrarMenu() {
         System.out.println("\n=== EL DESPERTAR DEL HÉROE: TURNO DE NOCHE ===");
         System.out.println("1. Nueva partida");
@@ -200,28 +217,28 @@ public class Metodos {
             public static int registrarPuntuacion(String[] nombres, int[] puntos, int total,
                                             String nombre, int nuevosPuntos)
         {
-            // 1. Buscar la posición. Con >= el registro más antiguo gana los empates.
+          
             int posicion = 0;
             while (posicion < total && puntos[posicion] >= nuevosPuntos) {
                 posicion++;
             }
 
-            // 2. Ranking lleno y no supera a la décima: no entra.
+           
             if (posicion >= Juego.CAPACIDAD_RANKING) {
                 return total;
             }
 
-            // 3. Hacer hueco desde el final, moviendo nombre y puntos a la vez.
+            
             int ultimo = total;
             if (total == Juego.CAPACIDAD_RANKING) {
-                ultimo = Juego.CAPACIDAD_RANKING - 1;   // lleno: el último se pierde
+                ultimo = Juego.CAPACIDAD_RANKING - 1;   
             }
             for (int i = ultimo; i > posicion; i--) {
                 nombres[i] = nombres[i - 1];
                 puntos[i] = puntos[i - 1];
             }
 
-            // 4. Guardar el nuevo.
+           
             nombres[posicion] = nombre;
             puntos[posicion] = nuevosPuntos;
 
