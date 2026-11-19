@@ -1,45 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"  standalone="no"?>
-<!DOCTYPE ranking SYSTEM "ranking.dtd">
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ranking nombre="Top jugadores">
     <numero posicion="1">
-        <nombre>Lucía</nombre>
-        <puntuacion>387</puntuacion>
+        <nombre>Javier</nombre>
+        <puntuacion>319</puntuacion>
     </numero>
     <numero posicion="2">
-        <nombre>Marcos</nombre>
-        <puntuacion>352</puntuacion>
-    </numero>
-    <numero posicion="3">
-        <nombre>PPC</nombre>
-        <puntuacion>335</puntuacion>
-    </numero>
-    <numero posicion="4">
-        <nombre>Carla</nombre>
-        <puntuacion>331</puntuacion>
-    </numero>
-    <numero posicion="5">
-        <nombre>Dante</nombre>
-        <puntuacion>321</puntuacion>
-    </numero>
-    <numero posicion="6">
-        <nombre>Diego</nombre>
-        <puntuacion>318</puntuacion>
-    </numero>
-    <numero posicion="7">
-        <nombre>4</nombre>
-        <puntuacion>314</puntuacion>
-    </numero>
-    <numero posicion="8">
-        <nombre>Sarah</nombre>
-        <puntuacion>313</puntuacion>
-    </numero>
-    <numero posicion="9">
-        <nombre>Sofía</nombre>
-        <puntuacion>305</puntuacion>
-    </numero>
-    <numero posicion="10">
-        <nombre>Javier</nombre>
-        <puntuacion>305</puntuacion>
+        <nombre>Hani</nombre>
+        <puntuacion>200</puntuacion>
     </numero>
 </ranking>

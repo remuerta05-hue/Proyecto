@@ -4,7 +4,7 @@
 body {
   font-family: "Courier New", monospace;
   font-size: 16px;
-  color: #4b2e5c;
+  color:#4b2e5c;
   background-color: #f3ecfa;
 }
 
@@ -36,7 +36,7 @@ th {
   font-size: 18px;
 }
 
-/* Filas pares en lila muy claro (efecto cebra) */
+/* Filas pares en lila muy claro */
 tr:nth-child(odd) td {
   background-color: #f8f2fc;
 }
