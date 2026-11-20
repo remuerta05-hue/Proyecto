@@ -2,26 +2,42 @@
 <!DOCTYPE ranking SYSTEM "ranking.dtd">
 <ranking nombre="Top jugadores">
     <numero posicion="1">
+        <nombre>gise</nombre>
+        <puntuacion>341</puntuacion>
+    </numero>
+    <numero posicion="2">
+        <nombre>xsd</nombre>
+        <puntuacion>339</puntuacion>
+    </numero>
+    <numero posicion="3">
         <nombre>Gise</nombre>
         <puntuacion>325</puntuacion>
     </numero>
-    <numero posicion="2">
+    <numero posicion="4">
+        <nombre>1</nombre>
+        <puntuacion>325</puntuacion>
+    </numero>
+    <numero posicion="5">
         <nombre>Hani</nombre>
         <puntuacion>318</puntuacion>
     </numero>
-    <numero posicion="3">
+    <numero posicion="6">
+        <nombre>Descartado</nombre>
+        <puntuacion>317</puntuacion>
+    </numero>
+    <numero posicion="7">
         <nombre>Luis</nombre>
         <puntuacion>315</puntuacion>
     </numero>
-    <numero posicion="4">
+    <numero posicion="8">
         <nombre>Jose</nombre>
         <puntuacion>304</puntuacion>
     </numero>
-    <numero posicion="5">
+    <numero posicion="9">
         <nombre>Monica</nombre>
         <puntuacion>301</puntuacion>
     </numero>
-    <numero posicion="6">
+    <numero posicion="10">
         <nombre>Lia</nombre>
         <puntuacion>100</puntuacion>
     </numero>

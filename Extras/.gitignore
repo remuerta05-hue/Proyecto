@@ -23,9 +23,9 @@
 hs_err_pid*
 replay_pid*
 
-# ===== Tabla de puntuacion =====
-# HTML generado por la transformacion XSLT (se vuelve a crear con Saxon)
-ranking.html
+# Carpetas de salida de la compilacion
+bin/
+out/
 
 # Configuracion del editor (Visual Studio Code)
 .vscode/
