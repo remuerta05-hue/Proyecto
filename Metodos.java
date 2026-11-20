@@ -264,7 +264,8 @@ public class Metodos {
          * @param fichero ruta del fichero XML
          * @param nombres array donde se guardan los nombres
          * @param puntos  array donde se guardan las puntuaciones
-         * @return número de registros leídos (0 si el fichero no existe)
+         * @return número de registros leídos (0 si el fichero no existe,
+         *         -1 si el fichero existe pero está dañado o tiene datos incorrectos)
          */
         public static int cargarRanking(String fichero, String[] nombres, int[] puntos)
         {
@@ -275,25 +276,46 @@ public class Metodos {
             }
             try {
                 DocumentBuilderFactory fabrica = DocumentBuilderFactory.newInstance();
-                fabrica.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+                 fabrica.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
                 DocumentBuilder constructor = fabrica.newDocumentBuilder();
                 Document documento = constructor.parse(archivo);
                 documento.getDocumentElement().normalize();
 
                 NodeList lista = documento.getElementsByTagName("numero");
-                for (int i = 0; i < lista.getLength() && total < nombres.length; i++) {
+                if (lista.getLength() > nombres.length) {
+                    System.out.println("El ranking tiene más de " + nombres.length + " registros.");
+                    return -1;
+                }
+                for (int i = 0; i < lista.getLength(); i++) {
                     Element numero = (Element) lista.item(i);
-                    nombres[total] = numero.getElementsByTagName("nombre").item(0).getTextContent();
-                    puntos[total] = Integer.parseInt(
-                            numero.getElementsByTagName("puntuacion").item(0).getTextContent());
+                    String nombre = numero.getElementsByTagName("nombre").item(0).getTextContent().trim();
+                    int valor = Integer.parseInt(
+                            numero.getElementsByTagName("puntuacion").item(0).getTextContent().trim());
+
+                    // Comprobaciones que la DTD no puede hacer
+                    if (nombre.isEmpty()) {
+                        System.out.println("Hay un registro sin nombre (posición " + (i + 1) + ").");
+                        return -1;
+                    }
+                    if (valor < 0 || valor > Juego.PUNTUACION_MAXIMA) {
+                        System.out.println("Puntuación fuera de rango (posición " + (i + 1) + "): " + valor);
+                        return -1;
+                    }
+                    if (total > 0 && valor > puntos[total - 1]) {
+                        System.out.println("El ranking no está ordenado de mayor a menor.");
+                        return -1;
+                    }
+                    nombres[total] = nombre;
+                    puntos[total] = valor;
                     total++;
                 }
             } catch (Exception e) {
+                // Incluye XML mal formado, campos que faltan o puntuaciones que no son números
                 System.out.println("No se pudo leer el ranking: " + e.getMessage());
+                return -1;
             }
             return total;
         }
-
                 /**
          * Guarda el ranking en el fichero XML, sobrescribiéndolo entero (basado en CrearXML).
          * @param fichero ruta del fichero XML
@@ -330,6 +352,7 @@ public class Metodos {
                 Transformer transformer = TransformerFactory.newInstance().newTransformer();
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
                 transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+                transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, "ranking.dtd");
                 transformer.transform(new DOMSource(documento), new StreamResult(new File(fichero)));
             } catch (Exception e) {
                System.out.println ("Error generado al XML: " + e.getMessage());

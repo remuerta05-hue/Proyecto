@@ -12,6 +12,10 @@ Eres **el cajero de una tienda** en pleno turno de noche. Entran tres asaltantes
 - [Cómo ejecutarlo](#cómo-ejecutarlo)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Cómo funciona por dentro](#cómo-funciona-por-dentro)
+- [El ranking (ranking.xml)](#el-ranking-rankingxml)
+- [Validar el XML con la DTD](#validar-el-xml-con-la-dtd)
+- [Consultas XPath](#consultas-xpath)
+- [Generar la tabla HTML (XSLT)](#generar-la-tabla-html-xslt)
 - [Autora] (#Autora)
 
 
@@ -85,15 +89,27 @@ La partida termina al vencer al tercer enemigo, al quedarte sin vida o al abando
 **Desde Visual Studio Code:** abre `Main.java` y pulsa **Run**.
 
 ---
-
 ## Estructura del proyecto
 
 ```
 ├── Main.java               → Arranca el juego y muestra el menú
-├── Metodos.java            → La lógica del juego: menú, combates, puntuación y ranking
-├── CrearXML.java           → Crea el fichero del ranking la primera vez
-├── LeerXML.java            → Lee el ranking al abrir el juego
-├── ranking.xml             → Aquí se guardan las puntuaciones
+├── Metodos.java            → La lógica del juego: menú, combates, puntuación, ranking y XML
+├── CrearXML.java           → Práctica de clase: crear un XML con DOM (base de guardarRanking)
+├── LeerXML.java            → Práctica de clase: leer un XML con DOM (base de cargarRanking)
+├── ranking.xml             → Aquí se guardan las puntuaciones (enlazado a la DTD)
+├── ranking.dtd             → Reglas de estructura del ranking
+├── consultas_xpath.md      → Las cinco consultas XPath numeradas
+├── ranking.xsl             → Transformación del ranking a HTML
+├── ranking.css             → Estilos de la tabla
+├── ranking.html            → Tabla generada con Saxon (no se edita a mano)
+├── README.md
+├── .gitignore
+├── pruebas/                → Copias para pruebas (no son el ranking real)
+│   ├── error1_falta_puntuacion.xml
+│   ├── error2_elemento_no_permitido.xml
+│   ├── ranking_vacio.xml
+│   ├── ranking_datos_incorrectos.xml
+│   └── ranking_mal_formado.xml
 └── personajes/
     ├── Juego.java          → Todas las constantes del juego (vidas, daños, nombres…)
     ├── Personaje.java      → Lo que tienen en común todos los personajes
@@ -106,7 +122,7 @@ La partida termina al vencer al tercer enemigo, al quedarte sin vida o al abando
         ├── IVida.java      ┐
         ├── IAtaque.java    ├ Interfaces que deben cumplir los enemigos
         └── IObjeto.java    ┘
----
+```
 
 ## Cómo funciona por dentro
 
@@ -131,7 +147,51 @@ Personaje
 4. Al terminar, se calculan los puntos y se guardan en el ranking.
 
 
+
 ---
+
+## El ranking (ranking.xml)
+
+- Está en la carpeta raíz. El juego lo **lee al arrancar** y lo **guarda al terminar cada partida**.
+- Si no existe, el juego empieza con el ranking vacío y lo crea al terminar la primera partida.
+- Si existe pero está dañado (mal formado, puntuación que no es un número, fuera de 0-400, nombre vacío, más de 10 registros o desordenado), el juego avisa y **no lo sobrescribe**: se puede jugar, pero no se guarda nada hasta corregirlo.
+- **Restablecer una copia de prueba:** guarda antes una copia del ranking real y copia la que quieras probar encima. Las copias de `pruebas/` enlazan la DTD con `../ranking.dtd`, así que al copiarlas a la raíz cambia esa ruta por `ranking.dtd`.
+
+  ```
+  cp ranking.xml ranking_real.xml          # copia de seguridad
+  cp pruebas/ranking_vacio.xml ranking.xml # probar ranking vacío
+  cp ranking_real.xml ranking.xml          # volver al ranking real
+
+  ```
+
+  ---
+  ---
+
+## Consultas XPath
+
+Las cinco consultas están en `consultas_xpath.md`. Se ejecutan así (ejemplo con la consulta 2):
+
+```
+xmllint --xpath "/ranking/numero[puntuacion > 300]/nombre/text()" ranking.xml
+```
+
+---
+
+## Generar la tabla HTML (XSLT)
+
+- **Entrada:** `ranking.xml` + `ranking.xsl`
+- **Salida:** `ranking.html` (enlaza `ranking.css` con ruta relativa, así que deben estar en la misma carpeta)
+
+```
+java -jar saxon-he-12.5.jar -s:ranking.xml -xsl:ranking.xsl -o:ranking.html
+```
+
+(Cambia `saxon-he-12.5.jar` por el nombre y la ruta del `.jar` que hayas descargado.)
+
+Después abre `ranking.html` en el navegador. Si cambias un dato de `ranking.xml` y repites el comando, la tabla se actualiza.
+
+---
+
 
 ## Autora
 

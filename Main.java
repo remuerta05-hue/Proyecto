@@ -29,6 +29,13 @@ public class Main {
                 nombres,
                 puntos
         );
+         boolean rankingProtegido = false;
+        if (total < 0) {
+            rankingProtegido = true;
+            total = 0;
+            System.out.println("Se jugará sin guardar: corrige " + Juego.FICHERO_RANKING
+                    + " y vuelve a abrir el juego.");
+        }
 
         int opcion;
 
@@ -61,7 +68,12 @@ public class Main {
                             total,
                             nombre,
                             puntosPartida
-                    );
+                    ); 
+                    if (rankingProtegido) {
+                        System.out.println("El ranking no se ha guardado porque el fichero está dañado.");
+                    } else {
+
+
 
                     Metodos.guardarRanking(
                             Juego.FICHERO_RANKING,
@@ -69,7 +81,7 @@ public class Main {
                             puntos,
                             total
                     );
-
+                }
                     System.out.println("\n══════════ RANKING ACTUAL ══════════");
                     Metodos.mostrarRanking(nombres, puntos, total);
                     break;

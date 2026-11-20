@@ -11,6 +11,7 @@ public class Juego
     public static final String NOMBRE_BEBIDA = "Bebida energética";
     public static final int DANO_MIN_CAJERO= 10;
     public static final int DANO_MAX_CAJERO = 20;
+    public static final int PUNTUACION_MAXIMA = 400; 
 
         //Asaltante 
         

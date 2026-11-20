@@ -13,6 +13,19 @@
 			"group": {
 				"kind": "build"
 			}
+		},
+		{
+			"type": "xslt",
+			"label": "ranking with ranking.xml 2",
+			"saxonJar": "${config:XSLT.tasks.saxonJar}",
+			"xsltFile": "${workspaceFolder}/ranking.xsl",
+			"xmlSource": "${workspaceFolder}/ranking.xml",
+			"resultPath": "${command:xslt-xpath.pickResultFile}",
+			"messageEscaping": "adaptive",
+			"allowSyntaxExtensions40": "auto",
+			"group": {
+				"kind": "build"
+			}
 		}
 	]
 }

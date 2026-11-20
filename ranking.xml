@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE ranking SYSTEM "ranking.dtd">
 <ranking nombre="Top jugadores">
     <numero posicion="1">
+        <nombre>Gise</nombre>
+        <puntuacion>325</puntuacion>
+    </numero>
+    <numero posicion="2">
         <nombre>Hani</nombre>
         <puntuacion>318</puntuacion>
+    </numero>
+    <numero posicion="3">
+        <nombre>Jose</nombre>
+        <puntuacion>304</puntuacion>
     </numero>
 </ranking>
