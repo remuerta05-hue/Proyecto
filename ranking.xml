@@ -10,7 +10,19 @@
         <puntuacion>318</puntuacion>
     </numero>
     <numero posicion="3">
+        <nombre>Luis</nombre>
+        <puntuacion>315</puntuacion>
+    </numero>
+    <numero posicion="4">
         <nombre>Jose</nombre>
         <puntuacion>304</puntuacion>
+    </numero>
+    <numero posicion="5">
+        <nombre>Monica</nombre>
+        <puntuacion>301</puntuacion>
+    </numero>
+    <numero posicion="6">
+        <nombre>Lia</nombre>
+        <puntuacion>100</puntuacion>
     </numero>
 </ranking>
